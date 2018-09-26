@@ -10,7 +10,7 @@ echo "Building playground for branch $1"
 
 SCRIPT=$(readlink -f $0)
 SCRIPTPATH=`dirname $SCRIPT`
-OUTDIR=$SCRIPTPATH/builds/playground/$1/$(date -u +"%G-%m-%d-%H-%M")
+OUTDIR=$SCRIPTPATH/builds/playground/$1/$(date +"%G-%m-%d-%H-%M")
 
 echo "OUTDIR: $OUTDIR"
 mkdir -p $OUTDIR
