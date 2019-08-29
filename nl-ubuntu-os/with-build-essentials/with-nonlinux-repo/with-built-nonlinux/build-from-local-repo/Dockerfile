@@ -2,7 +2,7 @@ FROM nl-ubuntu-os/with-build-essentials/with-nonlinux-repo/with-built-nonlinux
 
 ENV BASE_DIR /nonlinux
 ENV TARGET_DIR ${BASE_DIR}/output/target
-ENV BUILD_DIR ${BASE_DIR}/output/build/playground-HEAD
+ENV BUILD_DIR ${BASE_DIR}/output/build/playground-layouts-release-build-no-audio
 ENV STAGING_DIR ${BASE_DIR}/output/staging
 ENV HOST_DIR /root/development/buildroot_assets/host
 ENV GWT_COMPILER_DIR /root/development/buildroot_assets/host/gwt-2.8.2
