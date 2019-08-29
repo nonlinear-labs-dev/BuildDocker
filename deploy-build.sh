@@ -20,12 +20,14 @@ ssh root@$ip "rm /nonlinear/playground" > /dev/null 2>&1
 #if it is a directory (fresh sd card):
 ssh root@$ip "mv /nonlinear/playground /nonlinear/playground-old" > /dev/null 2>&1
 
-scp $buildPath/../lib/libnltools.so root@$ip:/nonlinear/playground/libnltools.so
 
 # finalize
 rm /tmp/$tar
 ssh root@$ip "rm $targetdir/$tar"
 ssh root@$ip "ln -s $targetdir /nonlinear/playground"
+
+scp $buildPath../../lib/libnltools.so root@$ip:/nonlinear/playground/libnltools.so
+
 ssh root@$ip "systemctl stop playground"
 ssh root@$ip "systemctl stop bbbb"
 #ssh root@$ip "systemctl restart playground"
