@@ -7,9 +7,11 @@ buildPath="$2"
 targetdir=/nonlinear/playground-$branch-$version
 tar=playground-$branch-$version.tar.gz
 
+echo "Buildpath should be /build/BRANCH/DATE/playground"
+
 echo "Generating tar: $tar"
 
-tar -C $buildPath -czf /tmp/$tar ./
+tar -czf /tmp/$tar -C $buildPath\nonlinear/playground/ resources NonMaps playground bbbb -C ../../lib libnltools.so
 ssh root@$ip "mkdir $targetdir"
 scp -C /tmp/$tar root@$ip:$targetdir/
 ssh root@$ip "gzip -dc $targetdir/$tar | tar -C $targetdir -xf -"
@@ -26,8 +28,5 @@ rm /tmp/$tar
 ssh root@$ip "rm $targetdir/$tar"
 ssh root@$ip "ln -s $targetdir /nonlinear/playground"
 
-scp $buildPath../../lib/libnltools.so root@$ip:/nonlinear/playground/libnltools.so
-
-ssh root@$ip "systemctl stop playground"
-ssh root@$ip "systemctl stop bbbb"
-#ssh root@$ip "systemctl restart playground"
+ssh root@$ip "systemctl restart bbbb"
+ssh root@$ip "systemctl restart playground"
