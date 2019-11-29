@@ -1,6 +1,3 @@
-##Preresequites
-install docker
-
 ## Usage
 * cd BuildDocker
 * ./build-playground.sh `c15-repo-branch`
